@@ -1,0 +1,13 @@
+src/main/java/com/tu_paquete_app/
+├── config/           # Configuraciones generales de la app (ej. WebConfig)
+├── controller/       # Manejo de peticiones HTTP, interacción con servicios
+│   └── TurnosController.java
+├── service/          # Lógica de negocio (manejo de transacciones, orquestación)
+│   └── TurnosService.java
+├── model/            # Clases POJO/Entidades (ej. Turno.java, Usuario.java)
+│   └── Turno.java
+│   └── Usuario.java
+└── data/             # Capa de persistencia (acceso a DB)
+    ├── BaseDeDatos.java      <-- ¡Aquí iría tu clase!
+    ├── TurnosDAO.java        # Métodos para CRUD de turnos
+    └── UsuarioDAO.java       # Métodos para CRUD de usuarios
