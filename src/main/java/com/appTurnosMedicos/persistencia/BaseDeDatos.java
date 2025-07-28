@@ -1,3 +1,5 @@
+package com.appTurnosMedicos.persistencia;
+
 /* ESTABLECIMIENTO DE CONEXION Y CREACION DEL POOL */
 
 import com.zaxxer.hikari.HikariConfig;
