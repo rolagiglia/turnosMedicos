@@ -1,13 +1,22 @@
 src/main/java/com/tu_paquete_app/
-├── config/           # Configuraciones generales de la app (ej. WebConfig)
-├── controller/       # Manejo de peticiones HTTP, interacción con servicios
-│   └── TurnosController.java
-├── service/          # Lógica de negocio (manejo de transacciones, orquestación)
+├── app/                # Clase principal (Servidor.java) - inicia el servidor y orquesta handlers
+│   └── Servidor.java
+├── config/             # Configuraciones generales de la app (ej. WebConfig, si tuvieras más configs)
+├── controller/         # Lógica de manejo de solicitudes específicas (ej. LoginController, DashboardController)
+│   ├── LoginController.java
+│   └── ControladorSesionActiva.java
+├── service/            # Lógica de negocio (ej. AuthService, SessionManager, TurnosService)
+│   ├── AuthService.java
+│   └── SessionManager.java
 │   └── TurnosService.java
-├── model/            # Clases POJO/Entidades (ej. Turno.java, Usuario.java)
-│   └── Turno.java
+├── model/              # Clases POJO/Entidades (ej. Turno.java, Usuario.java)
+│   ├── Turno.java
 │   └── Usuario.java
-└── data/             # Capa de persistencia (acceso a DB)
-    ├── BaseDeDatos.java      <-- ¡Aquí iría tu clase!
-    ├── TurnosDAO.java        # Métodos para CRUD de turnos
-    └── UsuarioDAO.java       # Métodos para CRUD de usuarios
+└── persistencia/               # Acceso a la base de datos (ej. BaseDeDatos, UsuarioDAO, TurnosDAO)
+│   ├── BaseDeDatos.java
+│   ├── UsuarioDAO.java
+│   └── TurnosDAO.java
+└── handler/            # Manejadores HTTP de Undertow (AuthHandler, CORSHandler, etc.) <-- ¡Aquí iría CORSHandler!
+    ├── AuthHandler.java
+    └── CORSHandler.java
+    # └── LoggingHandler.java (si lo implementas)

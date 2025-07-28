@@ -25,4 +25,10 @@ public class BaseDeDatos {
     public static Connection obtenerConexion() throws SQLException {
         return dataSource.getConnection();
     }
+    public static void cerrarPool() {
+        if (dataSource != null && !dataSource.isClosed()) {
+            dataSource.close();
+            System.out.println("Pool de conexiones de HikariCP cerrado.");
+        }
+    }
 }
