@@ -15,7 +15,7 @@ public class UsuarioDAO {
      * @throws SQLException Si ocurre un error de base de datos.
      */
     public String obtenerHashContrasena(String usuario) throws SQLException {
-        String sql = "SELECT password_hash FROM usuarios WHERE usuario = ?";
+        String sql = "SELECT password_hash FROM logins.Usuario WHERE usuario = ?";
         try (Connection conn = BaseDeDatos.obtenerConexion();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, usuario);

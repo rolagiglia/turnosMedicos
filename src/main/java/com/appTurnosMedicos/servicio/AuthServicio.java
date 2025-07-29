@@ -22,12 +22,13 @@ public class AuthServicio {
      */
     public boolean verificarCredenciales(String usuario, String claveEnTextoPlano) throws SQLException {
         String hashAlmacenado = usuarioDAO.obtenerHashContrasena(usuario);
-
+        System.out.println(hashAlmacenado);
+        System.out.println(BCrypt.hashpw("123456", BCrypt.gensalt(10)));
         if (hashAlmacenado == null) {
             // Usuario no encontrado en la base de datos
             return false;
         }
-
+        
         // Compara la contraseña en texto plano con el hash almacenado usando BCrypt
         // BCrypt.checkpw() se encarga de extraer el salt del hash almacenado y hacer la comparación.
         return BCrypt.checkpw(claveEnTextoPlano, hashAlmacenado);

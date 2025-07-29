@@ -20,7 +20,7 @@ import io.undertow.util.Headers;
 public class Servidor {
 
     // Define las URLs de tu frontend estático
-    private static final String FRONTEND_ORIGIN = "http://localhost:80"; // O "https://mis-turnos-estaticos.com" en producción
+    private static final String FRONTEND_ORIGIN = "http://localhost:83"; // O "https://mis-turnos-estaticos.com" en producción
     private static final String FRONTEND_LOGIN_PAGE = FRONTEND_ORIGIN + "/index.html";
     private static final String FRONTEND_DASHBOARD_PAGE = FRONTEND_ORIGIN + "/paciente.html";
 

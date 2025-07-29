@@ -2,6 +2,7 @@ package com.appTurnosMedicos.handler;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.Headers;
+import io.undertow.util.HttpString;
 import io.undertow.util.Methods;
 
 public class CORSHandler implements HttpHandler {
@@ -16,10 +17,10 @@ public class CORSHandler implements HttpHandler {
     @Override
     public void handleRequest(HttpServerExchange exchange) throws Exception {
         // Establecer las cabeceras CORS para todas las respuestas
-        exchange.getResponseHeaders().put(Headers.ACCESS_CONTROL_ALLOW_ORIGIN, allowedOrigin);
-        exchange.getResponseHeaders().put(Headers.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT, DELETE, OPTIONS");
-        exchange.getResponseHeaders().put(Headers.ACCESS_CONTROL_ALLOW_HEADERS, "Content-Type, Authorization"); // Si usas tokens JWT o headers personalizados
-        exchange.getResponseHeaders().put(Headers.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true"); // Si usas cookies de sesión o autenticación HTTP
+        exchange.getResponseHeaders().put(new HttpString("Access-Control-Allow-Origin"), allowedOrigin);
+        exchange.getResponseHeaders().put(new HttpString("Access-Control-Allow-Methods"), "GET, POST, PUT, DELETE, OPTIONS");
+        exchange.getResponseHeaders().put(new HttpString("Access-Control-Allow-Headers"), "Content-Type, Authorization"); // Si usas tokens JWT o headers personalizados
+        exchange.getResponseHeaders().put(new HttpString("Access-Control-Allow-Credentials"), "true"); // Si usas cookies de sesión o autenticación HTTP
 
         // Manejar solicitudes preflight (OPTIONS)
         if (exchange.getRequestMethod().equals(Methods.OPTIONS)) {

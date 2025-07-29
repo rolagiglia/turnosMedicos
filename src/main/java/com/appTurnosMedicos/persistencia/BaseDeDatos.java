@@ -14,7 +14,7 @@ public class BaseDeDatos {
     static {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:sqlserver://turnosmedicos.database.windows.net:1433;database=turnosMedicos;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-        config.setUsername("administradorRodrigo@turnosmedicos");
+        config.setUsername("administradorRodrigo");
         config.setPassword("elAdminRodri#");
         config.setMaximumPoolSize(10);
         config.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
