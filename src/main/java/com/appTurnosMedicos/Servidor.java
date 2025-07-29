@@ -36,7 +36,7 @@ public class Servidor {
 
         // Ruta de LOGIN (POST)
         // Usa BlockingHandler porque las operaciones de DB son bloqueantes.
-        pathTemplateHandler.add("/index", new BlockingHandler(exchange -> {
+        pathTemplateHandler.add("/login", new BlockingHandler(exchange -> {
             exchange.getRequestReceiver().receiveFullString(loginController::handleLogin);
         }));
 
