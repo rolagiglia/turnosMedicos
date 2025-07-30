@@ -34,18 +34,24 @@ public class Servidor {
         // --- 2. Definición de Rutas de la API con PathTemplateHandler ---
         PathTemplateHandler pathTemplateHandler = new PathTemplateHandler();
 
-        // Ruta de LOGIN (POST)
-        // Usa BlockingHandler porque las operaciones de DB son bloqueantes.
+        // Ruta de LOGIN (POST)------------------------------------------------------------------------------------        
         pathTemplateHandler.add("/login", new BlockingHandler(exchange -> {
             exchange.getRequestReceiver().receiveFullString(loginController::handleLogin);
         }));
+        // Usa BlockingHandler porque las operaciones de DB son bloqueantes. Permite ejecutar operaciones que toman tiempo sin bloquear el servidor principal.
+        // exchange: Objeto que contiene todos los detalles de la petición y permite construir la respuesta.
+        // getRequestReceiver(): Accede al componente para leer el cuerpo de la petición HTTP.
+        // receiveFullString(): Lee el cuerpo completo de la petición (ej. datos de formulario) como un String.
+        // loginController::handleLogin: Pasa el cuerpo de la petición al método handleLogin para procesar la lógica de inicio de sesión.
 
-        // Ruta de DASHBOARD (GET) - PROTEGIDA
+
+
+        // Ruta de DASHBOARD (GET) - PROTEGIDA ---------------------------------------------------------------------
         // Envuelve el DashboardController con AuthHandler para la verificación de sesión
         // y luego con BlockingHandler para las operaciones internas.
         pathTemplateHandler.add("/paciente", new BlockingHandler(new AuthHandler(panelControlador::handleDashboard, FRONTEND_LOGIN_PAGE)));
 
-        // Ruta de LOGOUT
+        // Ruta de LOGOUT ------------------------------------------------------------------------------------------
         pathTemplateHandler.add( "/logout", new BlockingHandler(exchange -> {
             Cookie sessionCookie = exchange.getRequestCookies().get(GestionDeSesionServicio.getSessionCookieName());
             if (sessionCookie != null) {
@@ -66,6 +72,7 @@ public class Servidor {
 
         // --- 3. Aplicar CORSHandler como el handler raíz ---
         // Envuelve todas las rutas de la API con el CORSHandler
+        //  si el frontend y backend están en orígenes distintos, necesitas CORSHandler para que el navegador permita la comunicación.
         HttpHandler rootHandler = new CORSHandler(pathTemplateHandler, FRONTEND_ORIGIN);
 
         // --- 4. Construir y Lanzar el Servidor Undertow ---

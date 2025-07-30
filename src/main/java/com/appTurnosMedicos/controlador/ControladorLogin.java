@@ -74,18 +74,17 @@ public class ControladorLogin {
 
                 exchange.getResponseCookies().put(GestionDeSesionServicio.getSessionCookieName(), sessionCookie);
 
-                // Redirigir al usuario a la página de dashboard estática
-                System.out.println("Login exitoso. Redirigiendo a: " + dashboardPageUrl);
-                exchange.setStatusCode(302); // Found (redirección temporal)
-                exchange.getResponseHeaders().put(Headers.LOCATION, dashboardPageUrl);
-                exchange.endExchange(); // Finalizar el intercambio
+                // Enviar respuesta JSON con URL para redirigir
+                exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
+                String jsonResponse = "{\"ok\":true,\"redirectUrl\":\"" + dashboardPageUrl + "\"}";
+                exchange.getResponseSender().send(jsonResponse);
 
             } else {
                 // Login fallido
-                System.out.println("Login fallido para usuario: " + usuario);
                 exchange.setStatusCode(401); // Unauthorized
                 exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
-                exchange.getResponseSender().send("{\"estado\":\"error\", \"mensaje\":\"Credenciales inválidas.\"}" );
+                String jsonResponse = "{\"estado\":\"error\", \"mensaje\":\"Usuario o contraseña inválidas.\"}" ;
+                exchange.getResponseSender().send(jsonResponse);
             }
         } catch (SQLException e) {
             System.err.println("Error de base de datos durante el login: " + e.getMessage());
