@@ -1,5 +1,6 @@
 package com.appTurnosMedicos.servicio;
 
+import com.appTurnosMedicos.modelo.Usuario;
 import com.appTurnosMedicos.persistencia.UsuarioDAO;
 import java.sql.SQLException;
 import org.mindrot.jbcrypt.BCrypt; // Importar la librería BCrypt
@@ -20,17 +21,16 @@ public class AuthServicio {
      * @return true si las credenciales son correctas, false en caso contrario.
      * @throws SQLException Si ocurre un error al acceder a la base de datos.
      */
-    public boolean verificarCredenciales(String usuario, String claveEnTextoPlano) throws SQLException {
+    public Usuario verificarCredenciales(String usuario, String claveEnTextoPlano) throws SQLException {
         String hashAlmacenado = usuarioDAO.obtenerHashContrasena(usuario);
-    
-        if (hashAlmacenado == null) {
-            // Usuario no encontrado en la base de datos
-            return false;
-        }
         
         // Compara la contraseña en texto plano con el hash almacenado usando BCrypt
         // BCrypt.checkpw() se encarga de extraer el salt del hash almacenado y hacer la comparación.
-        return BCrypt.checkpw(claveEnTextoPlano, hashAlmacenado);
+        if(hashAlmacenado != null && BCrypt.checkpw(claveEnTextoPlano, hashAlmacenado)){
+            return usuarioDAO.obtenerUsuario(usuario);
+        }
+        return null;
+
     }
     
     // Método para registrar un nuevo usuario (deberías tener una ruta /register para esto)

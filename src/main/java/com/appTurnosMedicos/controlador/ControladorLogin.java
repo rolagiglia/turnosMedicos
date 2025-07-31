@@ -1,6 +1,7 @@
 // Modificado: com.tu_paquete_app.controller.LoginController.java
 package com.appTurnosMedicos.controlador;
 
+import com.appTurnosMedicos.modelo.Usuario;
 import com.appTurnosMedicos.servicio.AuthServicio;
 import com.appTurnosMedicos.servicio.GestionDeSesionServicio; // <-- Importar SessionManager
 import io.undertow.server.HttpServerExchange;
@@ -59,9 +60,12 @@ public class ControladorLogin {
             exchange.getResponseSender().send("{\"estado\":\"error\", \"mensaje\":\"Usuario y clave son requeridos.\"}" );
             return;
         }
+        
 
         try {
-            if (authService.verificarCredenciales(usuario, clave)) {
+            Usuario usuarioLogueado = authService.verificarCredenciales(usuario, clave);
+            if (usuarioLogueado != null) {
+            
                 // Login exitoso
                 String sessionId = GestionDeSesionServicio.createSession(usuario); // Crear sesión
 
@@ -76,7 +80,7 @@ public class ControladorLogin {
 
                 // Enviar respuesta JSON con URL para redirigir
                 exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
-                String jsonResponse = "{\"ok\":true,\"redirectUrl\":\"" + dashboardPageUrl + "\"}";
+                String jsonResponse = "{\"ok\":true,\"redirectUrl\":\"" + dashboardPageUrl + "\", \"userName\":\"" + usuarioLogueado.getUsername() +"\"}";
                 exchange.getResponseSender().send(jsonResponse);
 
             } else {

@@ -9,13 +9,15 @@ public class Usuario {
     private int id;
     private String usuario;
     private String password_hash; // Nunca la contraseña en texto plano
+    private String tipo_usuario;
     private Date fecha_creacion;
 
-    public Usuario(int id, String username, String passwordHash) {
+    public Usuario(int id, String username, String passwordHash, Date fecha_creacion, String tipo_usuario) {
         this.id = id;
         this.usuario = username;
         this.password_hash = passwordHash;
-        this.fecha_creacion = new Date();
+        this.fecha_creacion = fecha_creacion;
+        this.tipo_usuario = tipo_usuario;
     }
 
     // Getters y Setters

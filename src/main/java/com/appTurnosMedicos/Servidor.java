@@ -1,7 +1,6 @@
 package com.appTurnosMedicos;
 
-import com.appTurnosMedicos.controlador.ControladorPanelTrabajo;
-import com.appTurnosMedicos.controlador.ControladorLogin;
+import com.appTurnosMedicos.controlador.*;
 import com.appTurnosMedicos.persistencia.BaseDeDatos;
 import com.appTurnosMedicos.persistencia.UsuarioDAO;
 import com.appTurnosMedicos.handler.AuthHandler;
@@ -29,7 +28,7 @@ public class Servidor {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         AuthServicio authService = new AuthServicio(usuarioDAO);
         ControladorLogin loginController = new ControladorLogin(authService, FRONTEND_DASHBOARD_PAGE, FRONTEND_LOGIN_PAGE);
-        ControladorPanelTrabajo panelControlador = new ControladorPanelTrabajo();
+        ControladorPaciente pacienteControlador = new ControladorPaciente();
 
         // --- 2. Definición de Rutas de la API con PathTemplateHandler ---
         PathTemplateHandler pathTemplateHandler = new PathTemplateHandler();
@@ -49,7 +48,7 @@ public class Servidor {
         // Ruta de DASHBOARD (GET) - PROTEGIDA ---------------------------------------------------------------------
         // Envuelve el DashboardController con AuthHandler para la verificación de sesión
         // y luego con BlockingHandler para las operaciones internas.
-        pathTemplateHandler.add("/paciente", new BlockingHandler(new AuthHandler(panelControlador::handleDashboard, FRONTEND_LOGIN_PAGE)));
+        pathTemplateHandler.add("/paciente", new BlockingHandler(new AuthHandler(pacienteControlador::handlePaciente, FRONTEND_LOGIN_PAGE)));
 
         // Ruta de LOGOUT ------------------------------------------------------------------------------------------
         pathTemplateHandler.add( "/logout", new BlockingHandler(exchange -> {

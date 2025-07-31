@@ -32,7 +32,7 @@ public class BaseDeDatos {
                         System.err.println("❌ No se pudo conectar luego de varios intentos.");
                     } else {
                         try {
-                            Thread.sleep(2000); // Espera 5 segundos antes del siguiente intento
+                            Thread.sleep(1000); // Espera 1 segundos antes del siguiente intento
                         } catch (InterruptedException ignored) {}
                     }
                 }
