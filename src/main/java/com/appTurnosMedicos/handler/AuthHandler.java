@@ -43,10 +43,12 @@ public class AuthHandler implements HttpHandler {
             }
         }
 
-        // Si no hay cookie de sesión o no es válida, redirigir a la página de login
-        System.out.println("No se encontró sesión válida, redirigiendo a login.");
-        exchange.setStatusCode(302);
-        exchange.getResponseHeaders().put(Headers.LOCATION, loginPageUrl);
+        // Si no hay cookie de sesión o no es válida
+        System.out.println("No se encontró sesión válida.");
+        exchange.setStatusCode(401);
+        exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
+        String errorJson = "{\"error\": \"Unauthorized\", \"message\": \"Se requiere autenticación para acceder a este recurso.\"}";
+        exchange.getResponseSender().send(errorJson); 
         exchange.endExchange();
     }
 }

@@ -8,7 +8,7 @@ import io.undertow.util.Headers;
 public class ControladorPaciente {
 
     public void handlePaciente(HttpServerExchange exchange) {
-        // Este handler solo se ejecutará si la autenticación fue correcta
+        // Este handler solo se ejecutará si la autenticación fue correcta en AuthHandler
         String userId = exchange.getAttachment(AuthHandler.USER_ID_KEY); // Obtener el ID de usuario del attachment
         exchange.setStatusCode(200);
         // Enviar respuesta JSON con URL para redirigir

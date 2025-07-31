@@ -54,6 +54,7 @@ public class ControladorLogin {
             }
         }
 
+        //SI USUARIO O CLAVE ESTAN VACIOS RESPONDE CON CODIGO DE ERROR 400
         if (usuario == null || clave == null || usuario.isEmpty() || clave.isEmpty()) {
             exchange.setStatusCode(400); // Bad Request
             exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
@@ -61,11 +62,10 @@ public class ControladorLogin {
             return;
         }
         
-
+        //SI NO ESTAN VACIOS
         try {
             Usuario usuarioLogueado = authService.verificarCredenciales(usuario, clave);
             if (usuarioLogueado != null) {
-            
                 // Login exitoso
                 String sessionId = GestionDeSesionServicio.createSession(usuario); // Crear sesión
 
@@ -75,12 +75,17 @@ public class ControladorLogin {
                                         .setHttpOnly(true)
                                         .setSecure(false); // Cambiar a true en producción con HTTPS
                                         // .setMaxAge(3600); // 1 hora de vida de la cookie si no es de sesión (opcional)
-
+                
+                //Añade la cookie a la respuesta HTTP
                 exchange.getResponseCookies().put(GestionDeSesionServicio.getSessionCookieName(), sessionCookie);
 
-                // Enviar respuesta JSON con URL para redirigir
+                //AGREGA EL TIPO DE CONTENIDO DE LA RESPUESTA 
                 exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
+                
+                //GENERA EL MENSAJE JSON
                 String jsonResponse = "{\"ok\":true,\"redirectUrl\":\"" + dashboardPageUrl + "\", \"userName\":\"" + usuarioLogueado.getUsername() +"\"}";
+                
+                // Enviar respuesta HTTP CON JSON
                 exchange.getResponseSender().send(jsonResponse);
 
             } else {
