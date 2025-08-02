@@ -8,7 +8,7 @@ import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.Cookie;
 import io.undertow.server.handlers.CookieImpl;
 import io.undertow.util.Headers;
-
+import com.appTurnosMedicos.excepciones.*;
 
 import java.sql.SQLException;
 import java.util.Deque;
@@ -95,6 +95,11 @@ public class ControladorLogin {
                 String jsonResponse = "{\"estado\":\"error\", \"mensaje\":\"Usuario o contraseña inválidas.\"}" ;
                 exchange.getResponseSender().send(jsonResponse);
             }
+        }catch (SesionDuplicadaException s){
+            exchange.setStatusCode(401); // Unauthorized
+            exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
+            String jsonResponse = "{\"estado\":\"error\", \"mensaje\":\"" + s.getMessage() + "Cerrala o espera a que caduque y reintenta." + "\"}" ;
+            exchange.getResponseSender().send(jsonResponse);
         } catch (SQLException e) {
             System.err.println("Error de base de datos durante el login: " + e.getMessage());
             e.printStackTrace(); // Log completo para depuración del servidor
@@ -107,6 +112,6 @@ public class ControladorLogin {
              exchange.setStatusCode(500);
              exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "application/json");
              exchange.getResponseSender().send("{\"estado\":\"error\", \"mensaje\":\"Error interno del servidor.\"}" );
-        }
+        } 
     }
 }

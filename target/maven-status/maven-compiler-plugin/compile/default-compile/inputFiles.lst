@@ -1,7 +1,9 @@
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorLogin.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorPaciente.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\SesionDuplicadaException.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\handler\AuthHandler.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\handler\CORSHandler.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\handler\LogoutHandler.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\modelo\Paciente.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\modelo\Usuario.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\BaseDeDatos.java

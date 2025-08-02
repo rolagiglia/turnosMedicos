@@ -1,10 +1,13 @@
+com\appTurnosMedicos\controlador\ControladorPaciente.class
+com\appTurnosMedicos\modelo\Usuario.class
+com\appTurnosMedicos\servicio\GestionDeSesionServicio$SesionInfo.class
 com\appTurnosMedicos\persistencia\BaseDeDatos.class
 com\appTurnosMedicos\controlador\ControladorLogin.class
 com\appTurnosMedicos\handler\CORSHandler.class
-com\appTurnosMedicos\controlador\ControladorPaciente.class
-com\appTurnosMedicos\modelo\Usuario.class
+com\appTurnosMedicos\handler\LogoutHandler.class
 com\appTurnosMedicos\persistencia\UsuarioDAO.class
 com\appTurnosMedicos\Servidor.class
+com\appTurnosMedicos\excepciones\SesionDuplicadaException.class
 com\appTurnosMedicos\handler\AuthHandler.class
 com\appTurnosMedicos\modelo\Paciente.class
 com\appTurnosMedicos\servicio\AuthServicio.class
