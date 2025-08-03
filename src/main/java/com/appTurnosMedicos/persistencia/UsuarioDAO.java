@@ -32,7 +32,7 @@ public class UsuarioDAO {
                         String user = resultSet.getString("usuario");
                         String passwordHash = resultSet.getString("password_hash");
                         Date fecha_creacion = resultSet.getDate("fecha_de_creacion");
-                        String tipoUsuario = resultSet.getString("tipo_usuario");
+                        int tipoUsuario = resultSet.getInt("tipo_usuario");
                         
                         return new Usuario(id, user, passwordHash, fecha_creacion, tipoUsuario);
                     }

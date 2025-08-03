@@ -3,19 +3,13 @@ package com.appTurnosMedicos;
 import com.appTurnosMedicos.controlador.*;
 import com.appTurnosMedicos.persistencia.BaseDeDatos;
 import com.appTurnosMedicos.persistencia.UsuarioDAO;
-import com.appTurnosMedicos.handler.AuthHandler;
 import com.appTurnosMedicos.handler.CORSHandler;
 import com.appTurnosMedicos.handler.LogoutHandler;
 import com.appTurnosMedicos.servicio.AuthServicio;
-import com.appTurnosMedicos.servicio.GestionDeSesionServicio;
 
 import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
-import io.undertow.server.handlers.BlockingHandler;
-import io.undertow.server.handlers.CookieImpl;
-import io.undertow.server.handlers.Cookie;
 import io.undertow.server.handlers.PathTemplateHandler;
-import io.undertow.util.Headers;
 
 public class Servidor {
 

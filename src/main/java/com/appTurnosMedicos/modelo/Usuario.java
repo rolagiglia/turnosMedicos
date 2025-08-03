@@ -9,10 +9,10 @@ public class Usuario {
     private int id;
     private String usuario;
     private String password_hash; // Nunca la contraseña en texto plano
-    private String tipo_usuario;
+    private int tipo_usuario;
     private Date fecha_creacion;
 
-    public Usuario(int id, String username, String passwordHash, Date fecha_creacion, String tipo_usuario) {
+    public Usuario(int id, String username, String passwordHash, Date fecha_creacion, int tipo_usuario) {
         this.id = id;
         this.usuario = username;
         this.password_hash = passwordHash;
@@ -28,4 +28,5 @@ public class Usuario {
     public String getPasswordHash() { return password_hash; }
     public void setPasswordHash(String passwordHash) { this.password_hash = passwordHash; }
     public Date getFechaCreacion(){return fecha_creacion;}
+    public int getTipoUsuario(){return this.tipo_usuario;}
 }
