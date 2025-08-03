@@ -23,7 +23,6 @@ public class BaseDeDatos {
                     config.setPassword("elAdminRodri#");
                     config.setMaximumPoolSize(10);
                     config.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
                     dataSource = new HikariDataSource(config);
                     break;
                 } catch (Exception e) {

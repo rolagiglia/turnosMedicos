@@ -3,6 +3,8 @@ package com.appTurnosMedicos.controlador;
 import com.appTurnosMedicos.handler.AuthHandler;
 
 import io.undertow.server.HttpServerExchange;
+import io.undertow.server.handlers.BlockingHandler;
+import io.undertow.server.handlers.PathTemplateHandler;
 import io.undertow.util.Headers;
 
 public class ControladorPaciente {
@@ -16,4 +18,10 @@ public class ControladorPaciente {
         String jsonResponse = "{\"ok\":true, \"userName\":\"" + userId +"\"}";
         exchange.getResponseSender().send(jsonResponse);
     }
+
+    public void registrarRutas(PathTemplateHandler pathTemplateHandler, String frontendLoginPage) {
+        pathTemplateHandler.add("/paciente", new BlockingHandler(new AuthHandler(this::handlePaciente, frontendLoginPage)));
+    }
+    // Envuelve con AuthHandler para la verificación de sesión
+    // y luego con BlockingHandler para las operaciones internas.
 }

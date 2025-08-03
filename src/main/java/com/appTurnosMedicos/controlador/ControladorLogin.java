@@ -5,8 +5,10 @@ import com.appTurnosMedicos.modelo.Usuario;
 import com.appTurnosMedicos.servicio.AuthServicio;
 import com.appTurnosMedicos.servicio.GestionDeSesionServicio; // <-- Importar SessionManager
 import io.undertow.server.HttpServerExchange;
+import io.undertow.server.handlers.BlockingHandler;
 import io.undertow.server.handlers.Cookie;
 import io.undertow.server.handlers.CookieImpl;
+import io.undertow.server.handlers.PathTemplateHandler;
 import io.undertow.util.Headers;
 import com.appTurnosMedicos.excepciones.*;
 
@@ -23,6 +25,18 @@ public class ControladorLogin {
         this.authService = authService;
         this.dashboardPageUrl = dashboardPageUrl;
         this.loginPageUrl = loginPageUrl;
+    }
+
+    public void registrarRutas(PathTemplateHandler pathTemplateHandler) {
+            pathTemplateHandler.add("/login", new BlockingHandler(exchange -> {
+            exchange.getRequestReceiver().receiveFullString(this::handleLogin);
+        }));
+        // Usa BlockingHandler porque las operaciones de DB son bloqueantes. Permite ejecutar operaciones que toman tiempo sin bloquear el servidor principal.
+        // exchange: Objeto que contiene todos los detalles de la petición y permite construir la respuesta.
+        // getRequestReceiver(): Accede al componente para leer el cuerpo de la petición HTTP.
+        // receiveFullString(): Lee el cuerpo completo de la petición (ej. datos de formulario) como un String.
+        // loginController::handleLogin: Pasa el cuerpo de la petición al método handleLogin para procesar la lógica de inicio de sesión.
+
     }
 
     @SuppressWarnings("removal")
@@ -114,4 +128,6 @@ public class ControladorLogin {
              exchange.getResponseSender().send("{\"estado\":\"error\", \"mensaje\":\"Error interno del servidor.\"}" );
         } 
     }
+
+    
 }
