@@ -1,3 +1,4 @@
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorDeRegistroDeUsuarios.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorLogin.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorPaciente.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\SesionDuplicadaException.java
@@ -5,8 +6,10 @@ C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\handler\CORSHandler.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\handler\LogoutHandler.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\modelo\Paciente.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\modelo\TipoUsuario.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\modelo\Usuario.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\BaseDeDatos.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\TipoUsuarioDAO.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\UsuarioDAO.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\servicio\AuthServicio.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\servicio\GestionDeSesionServicio.java
