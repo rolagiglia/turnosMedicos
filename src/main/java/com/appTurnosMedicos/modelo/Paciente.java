@@ -1,6 +1,7 @@
 package com.appTurnosMedicos.modelo;
 
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Paciente {
@@ -9,11 +10,11 @@ public class Paciente {
     private int dni;
     private String nombrePaciente;
     private String apellidoPaciente;
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
     private String mail;
     private String nacionalidad;
     private String cel;
-    private Integer idUsuario; // Puede ser null
+    private int idUsuario; // Puede ser null
     private Boolean borrado;
 
     // Constructor vacío
@@ -21,14 +22,14 @@ public class Paciente {
     }
 
     // Constructor con todos los campos
-    public Paciente(int idPaciente, int dni, String nombrePaciente, String apellidoPaciente,
-                    LocalDate fechaNacimiento, String mail, String nacionalidad, String cel,
-                    Integer idUsuario, Boolean borrado) {
-        this.idPaciente = idPaciente;
+    public Paciente(int id_paciente, int dni, String nombrePaciente, String apellidoPaciente,
+                    Date fechaNacimiento2, String mail, String nacionalidad, String cel,
+                    int idUsuario, boolean borrado) {
+        this.idPaciente = id_paciente;
         this.dni = dni;
         this.nombrePaciente = nombrePaciente;
         this.apellidoPaciente = apellidoPaciente;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento2;
         this.mail = mail;
         this.nacionalidad = nacionalidad;
         this.cel = cel;
@@ -69,11 +70,11 @@ public class Paciente {
         this.apellidoPaciente = apellidoPaciente;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

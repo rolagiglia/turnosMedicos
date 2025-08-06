@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class UsuarioDAO {
@@ -71,15 +72,19 @@ public class UsuarioDAO {
         }
     }
     
+   
 
-
-    // Método para crear un usuario (solo para demostración, en una app real sería más robusto)
     public void crearUsuario(String usuario, String passwordHash) throws SQLException {
-        String sql = "INSERT INTO usuarios (usuario, password_hash) VALUES (?, ?)";
+        LocalDate fechaHoy = LocalDate.now();
+        java.sql.Date sqlDate = java.sql.Date.valueOf(fechaHoy);
+        String sql = "INSERT INTO logins.Usuario (usuario, password_hash, fecha_de_creacion, tipo_usuario) VALUES (?, ?, ?, ?)";
+        System.out.println(sql);
         try (Connection conn = BaseDeDatos.obtenerConexion();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, usuario);
             stmt.setString(2, passwordHash);
+            stmt.setDate(3, sqlDate);
+            stmt.setInt(4, 1);//tipo paciente
             stmt.executeUpdate();
             System.out.println("Usuario '" + usuario + "' creado con éxito en la DB.");
         }
