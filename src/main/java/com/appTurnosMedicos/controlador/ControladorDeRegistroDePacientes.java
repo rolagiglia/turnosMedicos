@@ -3,8 +3,8 @@ package com.appTurnosMedicos.controlador;
 
 
 import com.appTurnosMedicos.modelo.PacienteConPass;
-import com.appTurnosMedicos.servicio.AuthServicio;
-
+import com.appTurnosMedicos.persistencia.PacienteDAO;
+import com.appTurnosMedicos.persistencia.UsuarioDAO;
 import com.appTurnosMedicos.servicio.RegistroPaciente;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.Headers;
@@ -16,11 +16,7 @@ import io.undertow.server.handlers.PathTemplateHandler;
 
 
 public class ControladorDeRegistroDePacientes {
-    private final AuthServicio authService;
 
-    public ControladorDeRegistroDePacientes(AuthServicio authService) {
-        this.authService = authService;
-    }
 
     public void registrarRutas(PathTemplateHandler pathTemplateHandler) {
             pathTemplateHandler.add("/paciente/registroDeUsuario", new BlockingHandler(exchange -> {
@@ -31,8 +27,6 @@ public class ControladorDeRegistroDePacientes {
     }
 
     public void handleRegistro(HttpServerExchange exchange, String jsonBody) {
-
-
         // Indicamos a Undertow que maneje la solicitud de forma bloqueante
         // para poder leer el cuerpo del POST completo
     exchange.startBlocking();
@@ -44,7 +38,7 @@ public class ControladorDeRegistroDePacientes {
             pacienteConPass = objectMapper.readValue(jsonBody, PacienteConPass.class);
             //Verificar si existe en la base de datos y sino agregarlo y crear el usr y pass
             //Delegamos la tarea a un servicio
-            RegistroPaciente registroDePaciente = new RegistroPaciente();
+            RegistroPaciente registroDePaciente = new RegistroPaciente(new PacienteDAO(), new UsuarioDAO());
             registroDePaciente.registraPaciente(pacienteConPass);
             exchange.setStatusCode(200);
             // Enviar respuesta JSON OK

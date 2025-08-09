@@ -2,7 +2,6 @@ package com.appTurnosMedicos.modelo;
 
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 public class Paciente {
 

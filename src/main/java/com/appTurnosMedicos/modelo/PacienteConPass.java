@@ -1,6 +1,6 @@
 package com.appTurnosMedicos.modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class PacienteConPass {
     private int dni;
@@ -21,8 +21,8 @@ public class PacienteConPass {
     public void setApellido_paciente(String apellido_paciente) {
         this.apellido_paciente = apellido_paciente;
     }
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFecha_nacimiento(java.util.Date fecha) {
+        this.fecha_nacimiento = fecha;
     }
     public void setMail(String mail) {
         this.mail = mail;
