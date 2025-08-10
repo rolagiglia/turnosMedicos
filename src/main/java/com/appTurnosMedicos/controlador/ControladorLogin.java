@@ -47,15 +47,8 @@ public class ControladorLogin {
         // Parsear el cuerpo de la petición (asumiendo application/x-www-form-urlencoded)
         // Undertow tiene un mecanismo para esto, pero para un POST simple, esto funciona:
         if (message != null) {
-            Map<String, Deque<String>> queryParameters = exchange.getQueryParameters(); // Si usas GET
-            // Para POST, es mejor usar FormParserFactory si esperas form-urlencoded:
-            // exchange.startBlocking(); // Necesario antes de parsear el formulario completo
-            // FormData parsedData = formParserFactory.createParser(exchange).parseBlocking();
-            // usuario = parsedData.getFirst("usuario").getValue();
-            // clave = parsedData.getFirst("clave").getValue();
-
-            // O una solución más rudimentaria para el formato "usuario=x&clave=y":
-            String[] parts = message.split("&");
+           
+                      String[] parts = message.split("&");
             for (String part : parts) {
                 String[] keyValue = part.split("=");
                 if (keyValue.length == 2) {

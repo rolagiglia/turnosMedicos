@@ -1,8 +1,10 @@
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorDeRegistroDePacientes.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorLogin.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorPaciente.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\controlador\ControladorRecuperoDePass.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\FormularioException.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\PacienteExisteException.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\PacienteNoExisteException.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\RegistroDePacienteException.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\excepciones\SesionDuplicadaException.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\handler\AuthHandler.java
@@ -14,9 +16,11 @@ C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\modelo\Usuario.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\BaseDeDatos.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\PacienteDAO.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\PasswordResetDAO.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\TipoUsuarioDAO.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\persistencia\UsuarioDAO.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\servicio\AuthServicio.java
+C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\servicio\EmailServicio.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\servicio\GestionDeSesionServicio.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\servicio\RegistroPaciente.java
 C:\Users\Ivi\Desktop\rodri varios\PROYECTO TURNOS\backend\turnosMedicosBack\src\main\java\com\appTurnosMedicos\Servidor.java

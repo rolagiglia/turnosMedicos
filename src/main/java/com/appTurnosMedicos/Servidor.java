@@ -26,7 +26,8 @@ public class Servidor {
         
         ControladorLogin loginController = new ControladorLogin(authService, FRONTEND_DASHBOARD_PAGE, FRONTEND_LOGIN_PAGE);
         ControladorPaciente pacienteControlador = new ControladorPaciente();
-        ControladorDeRegistroDePacientes registroDePacientesControlador = new ControladorDeRegistroDePacientes(authService);
+        ControladorDeRegistroDePacientes registroDePacientesControlador = new ControladorDeRegistroDePacientes();
+        ControladorRecuperoDePass recuperoDePassControlador = new ControladorRecuperoDePass();
         
         // --- 2. Definición de Rutas de la API con PathTemplateHandler ---
         PathTemplateHandler pathTemplateHandler = new PathTemplateHandler();
@@ -36,7 +37,7 @@ public class Servidor {
         loginController.registrarRutas(pathTemplateHandler);
         pacienteControlador.registrarRutas(pathTemplateHandler, FRONTEND_LOGIN_PAGE);
         registroDePacientesControlador.registrarRutas(pathTemplateHandler);
-        
+        recuperoDePassControlador.registrarRutas(pathTemplateHandler);
         
         
         

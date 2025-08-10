@@ -33,7 +33,7 @@ public class PacienteDAO {
     }
 
     public Paciente obtenerPacientePorDni(int dni) throws SQLException {
-        String sql = "SELECT * FROM pacientesPaciente WHERE dni = ?";
+        String sql = "SELECT * FROM pacientes.Paciente WHERE dni = ?";
 
         try (Connection conn = BaseDeDatos.obtenerConexion();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -42,12 +42,12 @@ public class PacienteDAO {
 
             if (rs.next()) {
                 int id_paciente = rs.getInt("id_paciente");
-                String nombre = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
+                String nombre = rs.getString("nombre_paciente");
+                String apellido = rs.getString("apellido_paciente");
                 java.sql.Date fechaNacimiento = rs.getDate("fecha_nacimiento");
                 String mail = rs.getString("mail");
                 String nacionalidad = rs.getString("nacionalidad");
-                String celular = rs.getString("celular");
+                String celular = rs.getString("cel");
                 int idUsuario = rs.getInt("id_usuario");
                 boolean borrado = rs.getBoolean("borrado");
 
