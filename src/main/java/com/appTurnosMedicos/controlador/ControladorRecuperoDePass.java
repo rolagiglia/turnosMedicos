@@ -5,6 +5,7 @@ import com.appTurnosMedicos.persistencia.PacienteDAO;
 import com.appTurnosMedicos.persistencia.PasswordResetDAO;
 import com.appTurnosMedicos.servicio.EmailServicio;
 
+import io.github.cdimascio.dotenv.Dotenv; //almacenamiento de variables de entorno api key local
 import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.BlockingHandler;
 import io.undertow.server.handlers.PathTemplateHandler;
@@ -23,6 +24,7 @@ public class ControladorRecuperoDePass {
 
     public void handleEmail(HttpServerExchange exchange, String formBody) {
         try {
+
         
             if (formBody != null) {
                 String [] parts = formBody.split("=");             
@@ -35,8 +37,12 @@ public class ControladorRecuperoDePass {
 
                     PacienteDAO pacienteDAO = new PacienteDAO();
                     Paciente paciente = pacienteDAO.obtenerPacientePorDni(dniN);                   
-                    
-                    EmailServicio emailServicio = new EmailServicio("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");
+                                // Carga las variables del archivo .env
+                    Dotenv dotenv = Dotenv.load();
+
+                    // Obtiene el valor de la API_KEY
+                    String apiKey = dotenv.get("API_KEY");
+                    EmailServicio emailServicio = new EmailServicio(apiKey); 
                     PasswordResetDAO passwordResetDAO = new PasswordResetDAO();
                     String codigo = passwordResetDAO.crearCodigo(paciente.getIdUsuario());
 
