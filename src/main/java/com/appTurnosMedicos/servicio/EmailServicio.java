@@ -5,9 +5,13 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class EmailServicio {
+
     
+public class EmailServicio {
+    private static final Logger logger = LoggerFactory.getLogger(EmailServicio.class);
     private final String apiKey;
 
     public EmailServicio(String apiKey) {
@@ -43,7 +47,10 @@ public class EmailServicio {
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println("Código de estado de Brevo: " + response.statusCode());
-        System.out.println("Cuerpo de la respuesta de Brevo: " + response.body());
+        if(response.statusCode() != 201){
+            logger.error("Error al enviar el correo: {}", response.body());
+            throw new IOException("Error al enviar el correo: " + response.body());
+        }
+        logger.info("Correo enviado exitosamente a: {}", toEmail);
     }
 }
