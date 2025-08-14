@@ -8,6 +8,7 @@ com\appTurnosMedicos\controlador\ControladorRecuperoDePass.class
 com\appTurnosMedicos\persistencia\UsuarioDAO.class
 com\appTurnosMedicos\persistencia\PasswordResetDAO.class
 com\appTurnosMedicos\handler\AuthHandler.class
+com\appTurnosMedicos\servicio\HaseaPassword.class
 com\appTurnosMedicos\servicio\GestionDeSesionServicio.class
 com\appTurnosMedicos\excepciones\FormularioException.class
 com\appTurnosMedicos\controlador\ControladorPaciente.class

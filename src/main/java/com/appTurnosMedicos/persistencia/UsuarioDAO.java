@@ -89,4 +89,17 @@ public class UsuarioDAO {
             System.out.println("Usuario '" + usuario + "' creado con éxito en la DB.");
         }
     }
+
+    public void actualizarPassword(String usuario, String nuevoPasswordHash) throws SQLException {
+        String sql = "UPDATE logins.Usuario SET password_hash = ? WHERE usuario = ?";
+        try (Connection conn = BaseDeDatos.obtenerConexion();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nuevoPasswordHash);
+            stmt.setString(2, usuario);
+            int filasActualizadas = stmt.executeUpdate();
+            if (filasActualizadas <= 0) {
+                throw new SQLException("No se pudo actualizar la contraseña para el usuario: " + usuario);
+            }
+        }
+    }
 }

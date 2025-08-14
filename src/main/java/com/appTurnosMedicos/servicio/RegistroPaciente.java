@@ -57,10 +57,9 @@ public class RegistroPaciente {
             }
 
             //crear usuario
-            String passwordHasheada = BCrypt.hashpw(p.getPass(), BCrypt.gensalt());
             Usuario usuario;
             try{
-                usuarioDAO.crearUsuario(String.valueOf(p.getDni()), passwordHasheada);
+                usuarioDAO.crearUsuario(String.valueOf(p.getDni()), HaseaPassword.hashearPassword(p.getPass()));
                 usuario = usuarioDAO.obtenerUsuario(String.valueOf(p.getDni()));
                 pacienteDAO.actualizarUsuarioIdDePaciente(p.getDni(),usuario.getId());
                 logger.info("Usuario creado exitosamente: {}", p.getDni());

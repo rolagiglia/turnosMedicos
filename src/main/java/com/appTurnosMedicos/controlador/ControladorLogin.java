@@ -37,7 +37,6 @@ public class ControladorLogin {
 
     }
 
-    @SuppressWarnings("removal")
     public void handleLogin(HttpServerExchange exchange, String message) {
         String usuario = null;
         String clave = null;

@@ -6,6 +6,9 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import com.appTurnosMedicos.excepciones.*;
 
+import io.undertow.server.HttpServerExchange;
+import io.undertow.server.handlers.Cookie;
+
 public class GestionDeSesionServicio {
     private static final Map<String, SesionInfo> activeSessions = new ConcurrentHashMap<>();
     private static final Map<String, String> userIdToSessionId = new ConcurrentHashMap<>();
@@ -41,9 +44,9 @@ public class GestionDeSesionServicio {
      * @return El ID de la sesión recién creada.
      */
     public static synchronized String createSession(String userId) {
-        // Si el usuario ya tiene sesión activa no permite nuevo logueo
+        // Si el usuario ya tiene sesión activa la inactivamos//////////////////////////////////////////
         if (userIdToSessionId.containsKey(userId)) {
-            throw new SesionDuplicadaException("El usuario ya tiene una sesion activa.");          
+            invalidateSession(userIdToSessionId.get(userId));
         }
 
         String sessionId = UUID.randomUUID().toString();
@@ -85,5 +88,9 @@ public class GestionDeSesionServicio {
 
     public static String getSessionCookieName() {
         return SESSION_COOKIE_NAME;
+    }
+    public static String getSessionIdFromCookie(HttpServerExchange exchange) {
+        Cookie cookie = exchange.getRequestCookie(SESSION_COOKIE_NAME);
+        return (cookie != null) ? cookie.getValue() : null;
     }
 }
