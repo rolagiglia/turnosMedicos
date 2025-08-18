@@ -1,8 +1,6 @@
 package com.appTurnosMedicos.controlador;
 
 
-import java.util.Map;
-
 import com.appTurnosMedicos.excepciones.PacienteNoExisteException;
 import com.appTurnosMedicos.modelo.Paciente;
 import com.appTurnosMedicos.persistencia.PacienteDAO;
@@ -11,7 +9,6 @@ import com.appTurnosMedicos.persistencia.UsuarioDAO;
 import com.appTurnosMedicos.servicio.EmailServicio;
 import com.appTurnosMedicos.servicio.GestionDeSesionServicio;
 import com.appTurnosMedicos.servicio.HaseaPassword;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.github.cdimascio.dotenv.Dotenv; //almacenamiento de variables de entorno api key local
 //resolver para produccion

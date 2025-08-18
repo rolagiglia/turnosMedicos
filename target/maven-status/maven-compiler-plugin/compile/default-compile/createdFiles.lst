@@ -1,6 +1,8 @@
 com\appTurnosMedicos\persistencia\TipoUsuarioDAO.class
 com\appTurnosMedicos\persistencia\PacienteDAO.class
 com\appTurnosMedicos\modelo\PacienteConPass.class
+com\appTurnosMedicos\modelo\Especialidad.class
+com\appTurnosMedicos\modelo\Profesional.class
 com\appTurnosMedicos\excepciones\PacienteNoExisteException.class
 com\appTurnosMedicos\handler\CORSHandler.class
 com\appTurnosMedicos\handler\LogoutHandler.class
@@ -9,11 +11,14 @@ com\appTurnosMedicos\persistencia\UsuarioDAO.class
 com\appTurnosMedicos\persistencia\PasswordResetDAO.class
 com\appTurnosMedicos\handler\AuthHandler.class
 com\appTurnosMedicos\servicio\HaseaPassword.class
+com\appTurnosMedicos\persistencia\ProfesionalDAO.class
 com\appTurnosMedicos\servicio\GestionDeSesionServicio.class
+com\appTurnosMedicos\controlador\ControladorProfesionales.class
 com\appTurnosMedicos\excepciones\FormularioException.class
 com\appTurnosMedicos\controlador\ControladorPaciente.class
 com\appTurnosMedicos\modelo\Usuario.class
 com\appTurnosMedicos\servicio\GestionDeSesionServicio$SesionInfo.class
+com\appTurnosMedicos\servicio\CatalogoDeProfesionales.class
 com\appTurnosMedicos\controlador\ControladorDeRegistroDePacientes.class
 com\appTurnosMedicos\persistencia\BaseDeDatos.class
 com\appTurnosMedicos\controlador\ControladorLogin.class
@@ -21,6 +26,7 @@ com\appTurnosMedicos\modelo\TipoUsuario.class
 com\appTurnosMedicos\excepciones\RegistroDePacienteException.class
 com\appTurnosMedicos\Servidor.class
 com\appTurnosMedicos\excepciones\SesionDuplicadaException.class
+com\appTurnosMedicos\persistencia\EspecialidadDAO.class
 com\appTurnosMedicos\servicio\RegistroPaciente.class
 com\appTurnosMedicos\excepciones\PacienteExisteException.class
 com\appTurnosMedicos\servicio\EmailServicio.class

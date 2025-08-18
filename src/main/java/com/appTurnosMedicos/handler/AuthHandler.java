@@ -18,6 +18,9 @@ public class AuthHandler implements HttpHandler {
         this.loginPageUrl = loginPageUrl;
     }
 
+
+
+
     @Override
     public void handleRequest(HttpServerExchange exchange) throws Exception {
         Cookie sessionCookie = null;

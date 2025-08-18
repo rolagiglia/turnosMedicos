@@ -29,6 +29,8 @@ public class Servidor {
         ControladorDeRegistroDePacientes registroDePacientesControlador = new ControladorDeRegistroDePacientes();
         ControladorRecuperoDePass recuperoDePassControlador = new ControladorRecuperoDePass();
         
+        ControladorProfesionales profesionalControlador = new ControladorProfesionales();
+
         // --- 2. Definición de Rutas de la API con PathTemplateHandler ---
         PathTemplateHandler pathTemplateHandler = new PathTemplateHandler();
 
@@ -38,7 +40,8 @@ public class Servidor {
         pacienteControlador.registrarRutas(pathTemplateHandler, FRONTEND_LOGIN_PAGE);
         registroDePacientesControlador.registrarRutas(pathTemplateHandler);
         recuperoDePassControlador.registrarRutas(pathTemplateHandler);
-        
+        profesionalControlador.registrarRutas(pathTemplateHandler, FRONTEND_LOGIN_PAGE);
+
         
         
         pathTemplateHandler.add("/logout", new LogoutHandler());
